@@ -24,10 +24,15 @@ import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKN
  */
 public class JacksonObjectMapper extends ObjectMapper {
 
+    // 日期格式：2024-01-15
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
-    //public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    // 日期时间格式：2024-01-15 10:30（注意：没有秒）
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm";
+
+    // 时间格式：10:30:45
     public static final String DEFAULT_TIME_FORMAT = "HH:mm:ss";
+
 
     public JacksonObjectMapper() {
         super();
