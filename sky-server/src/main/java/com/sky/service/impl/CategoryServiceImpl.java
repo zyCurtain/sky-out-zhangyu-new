@@ -46,27 +46,18 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void addCategory(CategoryDTO categoryDTO) {
         // 由于category表当中实际列大于传输的四项，所以需要新建新对象进行属性复制
-        Category category = Category.builder()
-                .createTime(LocalDateTime.now())
-                .updateTime(LocalDateTime.now())
-                .createUser(BaseContext.getCurrentId())
-                .updateUser(BaseContext.getCurrentId())
-                .status(StatusConstant.DISABLE)
-                .build();
+        Category category = new Category();
         BeanUtils.copyProperties(categoryDTO,category);
+        category.setStatus(StatusConstant.DISABLE);
         categoryMapper.addCategory(category);
     }
 
     @Override
     public void editCategory(CategoryDTO categoryDTO) {
         // 由于category表当中实际列大于传输的四项，所以需要新建新对象进行属性复制
-        Category category = Category.builder()
-                .createTime(LocalDateTime.now())
-                .updateTime(LocalDateTime.now())
-                .createUser(BaseContext.getCurrentId())
-                .updateUser(BaseContext.getCurrentId())
-                .build();
+        Category category = new Category();
         BeanUtils.copyProperties(categoryDTO,category);
+        // 因为使用AOP公共字段统一执行set方法所以这里删除了两个赋值
         categoryMapper.editCategory(category);
     }
 
@@ -87,5 +78,11 @@ public class CategoryServiceImpl implements CategoryService {
             throw new SetmealEnableFailedException(MessageConstant.CATEGORY_BE_RELATED_BY_SETMEAL);
         }
         categoryMapper.deleteCategory(id);
+    }
+
+    @Override
+    public List<Category> selectType(Integer type) {
+        List<Category> categoryList = categoryMapper.selectType(type);
+        return categoryList;
     }
 }
