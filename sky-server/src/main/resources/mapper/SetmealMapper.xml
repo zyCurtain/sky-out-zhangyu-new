@@ -2,11 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.SetmealMapper">
+    <insert id="addSetMeal" useGeneratedKeys="true" keyProperty="id">
+        insert into setmeal (category_id, name, price, description, image, create_time, update_time, create_user, update_user)
+        values (#{categoryId}, #{name}, #{price}, #{description}, #{image}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+    </insert>
 
     <select id="selectByDishIds" resultType="java.lang.Long">
         select setmeal_id from setmeal_dish where dish_id in
         <foreach collection="ids" open="(" close=")" separator="," item="id">
             #{id}
         </foreach>
+    </select>
+    <select id="pageQuery" resultType="com.sky.vo.SetmealVO">
+        select s.* ,c.name as category_name from setmeal as s left join category as c on s.category_id = c.id
+        <where>
+            <if test="name !=null and name != ''">
+                and s.name like concat('%',#{name},'%')
+            </if>
+            <if test="categoryId != null">
+                and s.category_id = #{categoryId}
+            </if>
+            <if test="status !=null">
+                and s.status = #{status}
+            </if>
+        </where>
+        order by s.create_time desc
     </select>
 </mapper>

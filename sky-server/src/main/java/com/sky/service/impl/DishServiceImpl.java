@@ -14,7 +14,6 @@ import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
-import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -112,5 +111,11 @@ public class DishServiceImpl implements DishService {
             });
             dishFlavorMapper.insertFlavors(flavorList);
         }
+    }
+
+    @Override
+    public List<Dish> selectByCategoryId(Long id) {
+        List<Dish> dishList = dishMapper.selectByCategoryId(id);
+        return dishList;
     }
 }
