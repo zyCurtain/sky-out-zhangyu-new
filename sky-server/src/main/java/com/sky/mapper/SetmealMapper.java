@@ -21,4 +21,16 @@ public interface SetmealMapper {
     Page<SetmealVO> pageQuery(SetmealPageQueryDTO pageQueryDTO);
     @AutoFill(value = OperationType.INSERT)
     void addSetMeal(Setmeal setmeal);
+
+    Integer selectStatusById(Long id);
+
+    void deleteSetMeal(List<Long> ids);
+
+    Setmeal getSetMealById(Long id);
+    @AutoFill(value = OperationType.UPDATE)
+    void updateSetMeal(Setmeal setmeal);
+
+    void statusControl(Integer status, Long id);
+
+    List<Setmeal> selectSetMealByDishId(Long id);
 }
