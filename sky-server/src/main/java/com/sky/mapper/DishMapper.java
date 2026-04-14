@@ -33,4 +33,13 @@ public interface DishMapper {
     Integer selectStatusById(Long dishId);
 
     void statusControl(Integer status, Long id);
+
+    /**
+     * 动态条件查询菜品
+     *
+     * @param dish
+     * @return
+     */
+    List<Dish> list(Dish dish);
+
 }
