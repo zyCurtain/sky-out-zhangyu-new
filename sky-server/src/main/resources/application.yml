@@ -62,3 +62,7 @@ sky:
     weChatPayCertFilePath: D:\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
     notifyUrl: https://www.weixin.qq.com/wxpay/pay.php
     refundNotifyUrl: https://www.weixin.qq.com/wxpay/pay.php
+  baidu:
+    ak: ${sky.baidu.ak}
+  shop:
+    address: ${sky.shop.address}
