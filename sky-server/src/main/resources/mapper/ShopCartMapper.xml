@@ -35,6 +35,6 @@
         order by create_time desc
     </select>
     <select id="listCart" resultType="com.sky.entity.ShoppingCart">
-        select * from shopping_cart
+        select * from shopping_cart where user_id=#{currentId}
     </select>
 </mapper>

@@ -14,7 +14,7 @@ public interface ShopCartMapper {
 
     void insertCart(ShoppingCart shoppingCart);
 
-    List<ShoppingCart> listCart();
+    List<ShoppingCart> listCart(Long currentId);
 
     void clean(Long currentId);
 
