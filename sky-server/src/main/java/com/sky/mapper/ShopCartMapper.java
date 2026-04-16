@@ -19,4 +19,11 @@ public interface ShopCartMapper {
     void clean(Long currentId);
 
     void deleteOne(ShoppingCartDTO shoppingCartDTO, Long currentId);
+
+    /**
+     * 批量插入购物车数据
+     *
+     * @param shoppingCartList
+     */
+    void insertBatch(List<ShoppingCart> shoppingCartList);
 }
