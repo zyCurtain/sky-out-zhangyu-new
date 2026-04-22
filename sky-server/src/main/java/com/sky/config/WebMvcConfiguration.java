@@ -48,6 +48,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login")
                 .excludePathPatterns("/user/shop/status");
+                // 🌟 添加下面这一行：把咱们的 AI 助理接口排除在外！
+//                .excludePathPatterns("/user/agent/**");
     }
 
     /**

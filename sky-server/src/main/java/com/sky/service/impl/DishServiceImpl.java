@@ -166,4 +166,10 @@ public class DishServiceImpl implements DishService {
         return dishVOList;
     }
 
+    @Override
+    public List<Dish> list(Dish dish) {
+        List<Dish> dishList = dishMapper.list(dish);
+        return dishList;
+    }
+
 }

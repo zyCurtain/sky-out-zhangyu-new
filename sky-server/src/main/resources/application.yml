@@ -66,3 +66,14 @@ sky:
     ak: ${sky.baidu.ak}
   shop:
     address: ${sky.shop.address}
+
+langchain4j:
+  open-ai:
+    chat-model:
+      model-name: ${sky.ai.openai.chat.options.model}
+      base-url: ${sky.ai.openai.base-url}
+      api-key: ${sky.ai.openai.api-key}
+    streaming-chat-model:
+      api-key: ${sky.ai.openai.api-key}
+      base-url: ${sky.ai.openai.base-url}
+      model-name: ${sky.ai.openai.chat.options.model}
